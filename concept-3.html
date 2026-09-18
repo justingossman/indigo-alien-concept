@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Indigo Alien Beauty</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#17142e;            /* deep indigo */
+    --panel:#1f1b3d;
+    --bone:#ece6d8;
+    --gold:#cdb98a;          /* starlight accent */
+    --muted:#928cb0;
+    --hair:rgba(236,230,216,.16);
+    --serif:'Fraunces', Georgia, serif;
+    --mono:'Space Mono', ui-monospace, Menlo, monospace;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{background:var(--bg); color:var(--bone); font-family:var(--serif); font-weight:300; line-height:1.6; -webkit-font-smoothing:antialiased}
+  a{color:inherit; text-decoration:none}
+  .wrap{max-width:1320px; margin:0 auto; padding:0 46px}
+  .mono{font-family:var(--mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase}
+  .eyebrow{font-family:var(--mono); font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:var(--gold)}
+  .label{font-family:var(--mono); font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:var(--muted)}
+
+  .announce{text-align:center; padding:11px; border-bottom:1px solid var(--hair); font-family:var(--mono); font-size:10.5px; letter-spacing:.3em; text-transform:uppercase; color:var(--muted)}
+  nav{display:flex; align-items:center; justify-content:space-between; padding:24px 46px; border-bottom:1px solid var(--hair)}
+  .brand{font-family:var(--serif); font-weight:400; font-size:22px; letter-spacing:.14em; text-transform:uppercase}
+  .navlinks{display:flex; gap:26px}
+  .navlinks a{font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); transition:color .3s}
+  .navlinks a:hover{color:var(--bone)}
+  .navicons{display:flex; gap:18px; font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted)}
+
+  /* type-only, full-viewport hero — no image */
+  .hero{min-height:90vh; display:flex; flex-direction:column; justify-content:center; padding:80px 46px}
+  .hero .eyebrow{margin-bottom:34px}
+  .hero h1{font-family:var(--serif); font-weight:300; font-size:clamp(56px,15vw,220px); line-height:.9; letter-spacing:-.02em; margin:0}
+  .hero h1 span{display:block}
+  .hero h1 em{font-style:italic; color:var(--gold)}
+  .hero .foot-hero{display:flex; justify-content:space-between; align-items:flex-end; margin-top:48px; flex-wrap:wrap; gap:20px}
+  .hero .cta{font-family:var(--mono); font-size:11px; letter-spacing:.26em; text-transform:uppercase; padding:14px 30px; border:1px solid var(--hair); color:var(--bone); transition:.3s}
+  .hero .cta:hover{background:var(--bone); color:var(--bg); border-color:var(--bone)}
+
+  /* product index */
+  .index{padding:clamp(70px,10vw,140px) 0 clamp(30px,5vw,70px)}
+  .index-head{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:20px}
+  .irow{display:flex; justify-content:space-between; align-items:center; gap:24px; padding:clamp(22px,3.2vw,40px) 0; border-top:1px solid var(--hair); transition:.35s}
+  .irow:last-child{border-bottom:1px solid var(--hair)}
+  .iname{font-family:var(--serif); font-weight:300; font-size:clamp(32px,6.4vw,80px); line-height:1; letter-spacing:-.01em; transition:.35s}
+  .irow:hover{padding-left:14px}
+  .irow:hover .iname{color:var(--gold)}
+  .imeta{display:flex; align-items:center; gap:22px; flex:0 0 auto}
+  .imeta .itag{font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted)}
+  .imeta .ish{font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--bone)}
+
+  /* full-bleed photo band for relief */
+  .band{margin-top:clamp(60px,9vw,120px); height:clamp(280px,42vw,560px); background:var(--panel); border-top:1px solid var(--hair); border-bottom:1px solid var(--hair); display:flex; align-items:center; justify-content:center; position:relative}
+  .band svg{width:120px; opacity:.5}
+  .band .shot-note{position:absolute; bottom:16px; left:0; right:0; text-align:center; font-family:var(--mono); font-size:9px; letter-spacing:.24em; text-transform:uppercase; color:rgba(146,140,176,.7)}
+
+  .statement{text-align:center; padding:clamp(100px,15vw,200px) 24px}
+  .statement .eyebrow{display:block; margin-bottom:30px}
+  .statement p{font-family:var(--serif); font-style:italic; font-weight:300; font-size:clamp(32px,5.4vw,70px); line-height:1.2; margin:0 auto; max-width:16ch}
+
+  .sets{display:flex; justify-content:space-between; align-items:center; gap:30px; padding:clamp(40px,6vw,70px) 0; border-top:1px solid var(--hair); border-bottom:1px solid var(--hair); flex-wrap:wrap}
+  .sets h2{font-family:var(--serif); font-weight:300; font-size:clamp(40px,8vw,96px); margin:0; line-height:1}
+  .sets .right{display:flex; align-items:center; gap:26px}
+  .sets .cta{font-family:var(--mono); font-size:11px; letter-spacing:.26em; text-transform:uppercase; padding:14px 30px; border:1px solid var(--hair); transition:.3s}
+  .sets .cta:hover{background:var(--bone); color:var(--bg); border-color:var(--bone)}
+
+  .news{text-align:center; padding:clamp(90px,13vw,180px) 24px}
+  .news .label{display:block; margin-bottom:26px; color:var(--gold)}
+  .signup{display:flex; max-width:460px; margin:0 auto; border-bottom:1px solid var(--hair)}
+  .signup input{flex:1; background:none; border:0; color:var(--bone); font-family:var(--mono); font-size:13px; letter-spacing:.04em; padding:15px 2px; outline:none}
+  .signup input::placeholder{color:var(--muted)}
+  .signup button{background:none; border:0; color:var(--bone); font-family:var(--mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; cursor:pointer}
+
+  footer{border-top:1px solid var(--hair); padding:66px 46px 48px}
+  .fg{max-width:1320px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr; gap:40px}
+  .fb{font-family:var(--serif); font-size:22px; letter-spacing:.14em; text-transform:uppercase}
+  .fb + p{font-family:var(--mono); color:var(--muted); font-size:11px; letter-spacing:.24em; text-transform:uppercase; margin-top:14px}
+  .fc h4{font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin:0 0 16px; font-weight:400}
+  .fc a{display:block; font-size:14px; margin-bottom:10px; opacity:.85} .fc a:hover{opacity:1; color:var(--gold)}
+  .fbase{max-width:1320px; margin:46px auto 0; padding-top:22px; border-top:1px solid var(--hair); display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); flex-wrap:wrap; gap:12px}
+
+  @media(max-width:860px){
+    .wrap{padding:0 24px} nav{padding:18px 24px} .navlinks{display:none}
+    .hero{padding:60px 24px} .fg{grid-template-columns:1fr 1fr}
+    .imeta{gap:14px}
+  }
+</style>
+</head>
+<body>
+<div class="announce">Cosmic Energy · Human Touch</div>
+<nav>
+  <a class="brand" href="#">Indigo Alien</a>
+  <div class="navlinks"><a href="#">Shop All</a><a href="#">Moisturizer</a><a href="#">Serum</a><a href="#">Cleanser</a><a href="#">Essence</a><a href="#">Sets</a></div>
+  <div class="navicons"><a href="#">Search</a><a href="#">Account</a><a href="#">Cart</a></div>
+</nav>
+
+<header class="hero wrap">
+  <span class="eyebrow">Indigo Alien Beauty</span>
+  <h1><span>Beauty in a</span><span><em>Higher</em> Frequency</span></h1>
+  <div class="foot-hero">
+    <span class="mono" style="color:var(--muted)">Cosmic Energy · Human Touch</span>
+    <a class="cta" href="#offerings">Shop All</a>
+  </div>
+</header>
+
+<section class="wrap index" id="offerings">
+  <div class="index-head"><span class="label">Luminous Offerings</span><a class="label" href="#" style="color:var(--bone)">View all</a></div>
+  <a class="irow" href="#"><span class="iname">Moisturizer</span><span class="imeta"><span class="itag">Skin</span><span class="ish">Shop</span></span></a>
+  <a class="irow" href="#"><span class="iname">Serum</span><span class="imeta"><span class="itag">Skin</span><span class="ish">Shop</span></span></a>
+  <a class="irow" href="#"><span class="iname">Cleanser</span><span class="imeta"><span class="itag">Skin</span><span class="ish">Shop</span></span></a>
+  <a class="irow" href="#"><span class="iname">Essence</span><span class="imeta"><span class="itag">Skin</span><span class="ish">Shop</span></span></a>
+  <a class="irow" href="#"><span class="iname">Tallow</span><span class="imeta"><span class="itag">Body</span><span class="ish">Shop</span></span></a>
+  <a class="irow" href="#"><span class="iname">Body Oil</span><span class="imeta"><span class="itag">Body</span><span class="ish">Shop</span></span></a>
+  <a class="irow" href="#"><span class="iname">Sun Balm</span><span class="imeta"><span class="itag">Body</span><span class="ish">Shop</span></span></a>
+</section>
+
+<div class="band"><svg viewBox="0 0 100 100" fill="none" stroke="#cdb98a" stroke-width=".7"><circle cx="50" cy="50" r="18"/><circle cx="50" cy="50" r="32"/><circle cx="50" cy="50" r="46"/><ellipse cx="50" cy="50" rx="49" ry="16" transform="rotate(20 50 50)"/></svg><span class="shot-note">Product photograph</span></div>
+
+<section class="statement">
+  <span class="eyebrow">Indigo Alien Beauty</span>
+  <p>Cosmic Energy. Human Touch.</p>
+</section>
+
+<section class="wrap">
+  <div class="sets">
+    <h2>Sets</h2>
+    <div class="right"><span class="label">Curated</span><a class="cta" href="#">Explore Sets</a></div>
+  </div>
+</section>
+
+<section class="news">
+  <span class="label">Newsletter</span>
+  <form class="signup" onsubmit="return false"><input type="email" placeholder="Email address" aria-label="Email address"><button type="submit">Subscribe</button></form>
+</section>
+
+<footer>
+  <div class="fg">
+    <div><div class="fb">Indigo Alien</div><p>Cosmic Energy · Human Touch</p></div>
+    <div class="fc"><h4>Shop</h4><a href="#">Moisturizer</a><a href="#">Serum</a><a href="#">Cleanser</a><a href="#">Essence</a><a href="#">Sets</a></div>
+    <div class="fc"><h4>Account</h4><a href="#">Log in</a><a href="#">Cart</a><a href="#">Search</a></div>
+  </div>
+  <div class="fbase"><span>© Indigo Alien Beauty</span><span>Beauty in a Higher Frequency</span></div>
+</footer>
+</body>
+</html>
