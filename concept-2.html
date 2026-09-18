@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Indigo Alien Beauty</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bone:#f2eee6; --panel:#e7e2d7; --ink:#161519; --indigo:#5b52c9; --muted:#736f7b; --hair:rgba(22,21,25,.14);
+    --disp:'Space Grotesk',-apple-system,'Helvetica Neue',Arial,sans-serif;
+    --serif:'Newsreader',Georgia,serif;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{background:var(--bone); color:var(--ink); font-family:var(--disp); font-weight:300; line-height:1.65; -webkit-font-smoothing:antialiased}
+  a{color:inherit; text-decoration:none}
+  .wrap{max-width:1280px; margin:0 auto; padding:0 44px}
+  .eyebrow{font-family:var(--disp); font-size:11px; letter-spacing:.32em; text-transform:uppercase; color:var(--indigo)}
+  .label{font-family:var(--disp); font-size:11px; letter-spacing:.26em; text-transform:uppercase; color:var(--muted)}
+  .announce{text-align:center; padding:11px; border-bottom:1px solid var(--hair); font-size:10.5px; letter-spacing:.32em; text-transform:uppercase; color:var(--muted)}
+  nav{display:flex; align-items:center; justify-content:space-between; padding:22px 44px; position:sticky; top:0; z-index:20; background:rgba(242,238,230,.85); backdrop-filter:blur(10px); border-bottom:1px solid var(--hair)}
+  .brand{font-family:var(--disp); font-weight:500; font-size:19px; letter-spacing:.24em; text-transform:uppercase}
+  .navlinks{display:flex; gap:28px}
+  .navlinks a{font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); transition:color .3s}
+  .navlinks a:hover{color:var(--ink)}
+  .navicons{display:flex; gap:20px; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted)}
+  .shot-note{position:absolute; bottom:12px; left:0; right:0; text-align:center; font-size:9px; letter-spacing:.24em; text-transform:uppercase; color:rgba(115,111,123,.6)}
+  .shot{background:var(--panel); border:1px solid var(--hair); display:flex; align-items:center; justify-content:center; position:relative}
+  .shot svg{opacity:.5}
+
+  /* split, asymmetric hero */
+  .hero{display:grid; grid-template-columns:1.15fr .85fr; gap:56px; align-items:center; padding:clamp(56px,8vw,116px) 44px clamp(70px,9vw,130px)}
+  .hero .eyebrow{margin-bottom:26px; display:block}
+  .hero h1{font-family:var(--disp); font-weight:400; font-size:clamp(46px,7vw,104px); line-height:.98; letter-spacing:-.02em; margin:0}
+  .hero h1 em{font-family:var(--serif); font-style:italic; font-weight:300; color:var(--indigo)}
+  .hero .cta{display:inline-block; margin-top:40px; font-size:11px; letter-spacing:.28em; text-transform:uppercase; padding:14px 32px; border:1px solid var(--ink); transition:.3s}
+  .hero .cta:hover{background:var(--ink); color:var(--bone)}
+  .hero-shot{aspect-ratio:3/4} .hero-shot svg{width:92px}
+
+  /* alternating product rows */
+  .sec-head{display:flex; justify-content:space-between; align-items:baseline; padding:clamp(40px,6vw,80px) 0 14px; border-top:1px solid var(--hair)}
+  .sec-head h2{font-family:var(--serif); font-style:italic; font-weight:300; font-size:clamp(30px,4.4vw,54px); margin:0}
+  .sec-head a{font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted)}
+  .prow{display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:center; padding:34px 0; border-top:1px solid var(--hair)}
+  .prow:nth-child(even) .pshot{order:2}
+  .pshot{aspect-ratio:4/3} .pshot svg{width:62px}
+  .pmeta .kind{margin-bottom:10px}
+  .pmeta h3{font-family:var(--disp); font-weight:400; font-size:clamp(30px,4vw,52px); margin:0; letter-spacing:-.01em}
+  .pmeta a{display:inline-block; margin-top:16px; font-size:11px; letter-spacing:.24em; text-transform:uppercase; border-bottom:1px solid var(--indigo); padding-bottom:3px}
+
+  .statement{text-align:center; padding:clamp(100px,15vw,190px) 24px; border-top:1px solid var(--hair); border-bottom:1px solid var(--hair)}
+  .statement p{font-family:var(--serif); font-style:italic; font-weight:300; font-size:clamp(30px,5vw,62px); line-height:1.2; margin:0 auto; max-width:15ch}
+
+  .sets{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; padding:clamp(80px,11vw,150px) 0}
+  .sets .pshot{aspect-ratio:4/5}
+  .sets h2{font-family:var(--disp); font-weight:400; font-size:clamp(34px,5vw,60px); margin:6px 0 0}
+  .sets a{display:inline-block; margin-top:26px; font-size:11px; letter-spacing:.28em; text-transform:uppercase; padding:14px 30px; border:1px solid var(--ink); transition:.3s}
+  .sets a:hover{background:var(--ink); color:var(--bone)}
+
+  .news{text-align:center; padding:clamp(80px,12vw,160px) 24px; border-top:1px solid var(--hair)}
+  .news .label{margin-bottom:26px; display:block}
+  .signup{display:flex; max-width:440px; margin:0 auto; border-bottom:1px solid var(--ink)}
+  .signup input{flex:1; background:none; border:0; color:var(--ink); font-family:var(--disp); font-size:14px; padding:14px 2px; outline:none}
+  .signup input::placeholder{color:var(--muted)}
+  .signup button{background:none; border:0; font-family:var(--disp); font-size:11px; letter-spacing:.24em; text-transform:uppercase; cursor:pointer}
+
+  footer{border-top:1px solid var(--hair); padding:66px 44px 48px}
+  .fg{max-width:1280px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr; gap:40px}
+  .fb{font-family:var(--disp); font-weight:500; font-size:19px; letter-spacing:.24em; text-transform:uppercase}
+  .fb + p{color:var(--muted); font-size:11px; letter-spacing:.26em; text-transform:uppercase; margin-top:14px}
+  .fc h4{font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin:0 0 16px; font-weight:400}
+  .fc a{display:block; font-size:13px; margin-bottom:10px; opacity:.8} .fc a:hover{opacity:1}
+  .fbase{max-width:1280px; margin:44px auto 0; padding-top:22px; border-top:1px solid var(--hair); display:flex; justify-content:space-between; font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); flex-wrap:wrap; gap:12px}
+
+  @media(max-width:860px){
+    .wrap{padding:0 24px} nav{padding:16px 24px} .navlinks{display:none}
+    .hero{grid-template-columns:1fr; gap:34px; padding:40px 24px 60px}
+    .prow{grid-template-columns:1fr; gap:20px} .prow:nth-child(even) .pshot{order:0}
+    .sets{grid-template-columns:1fr; gap:30px} .fg{grid-template-columns:1fr 1fr}
+  }
+</style>
+</head>
+<body>
+<div class="announce">Cosmic Energy · Human Touch</div>
+<nav>
+  <a class="brand" href="#">Indigo Alien</a>
+  <div class="navlinks"><a href="#">Shop All</a><a href="#">Moisturizer</a><a href="#">Serum</a><a href="#">Cleanser</a><a href="#">Essence</a><a href="#">Sets</a></div>
+  <div class="navicons"><a href="#">Search</a><a href="#">Account</a><a href="#">Cart</a></div>
+</nav>
+
+<header class="hero">
+  <div>
+    <span class="eyebrow">Indigo Alien Beauty</span>
+    <h1>Beauty in a <em>Higher</em> Frequency</h1>
+    <a class="cta" href="#offerings">Shop All</a>
+  </div>
+  <div class="shot hero-shot"><svg viewBox="0 0 100 100" fill="none" stroke="#5b52c9" stroke-width=".8"><circle cx="50" cy="50" r="22"/><circle cx="50" cy="50" r="36"/><circle cx="50" cy="50" r="48"/></svg><span class="shot-note">Product photograph</span></div>
+</header>
+
+<section class="wrap" id="offerings">
+  <div class="sec-head"><h2>Luminous Offerings</h2><a href="#">View all</a></div>
+  <div class="prow"><div class="shot pshot"><svg viewBox="0 0 100 100" fill="none" stroke="#5b52c9" stroke-width=".9"><circle cx="50" cy="50" r="30"/><ellipse cx="50" cy="50" rx="46" ry="16"/></svg><span class="shot-note">Product photograph</span></div><div class="pmeta"><div class="label kind">Skin</div><h3>Moisturizer</h3><a href="#">Shop</a></div></div>
+  <div class="prow"><div class="shot pshot"><svg viewBox="0 0 100 100" fill="none" stroke="#5b52c9" stroke-width=".9"><circle cx="50" cy="50" r="30"/><ellipse cx="50" cy="50" rx="46" ry="16" transform="rotate(30 50 50)"/></svg><span class="shot-note">Product photograph</span></div><div class="pmeta"><div class="label kind">Skin</div><h3>Serum</h3><a href="#">Shop</a></div></div>
+  <div class="prow"><div class="shot pshot"><svg viewBox="0 0 100 100" fill="none" stroke="#5b52c9" stroke-width=".9"><circle cx="50" cy="50" r="30"/><ellipse cx="50" cy="50" rx="46" ry="16" transform="rotate(-30 50 50)"/></svg><span class="shot-note">Product photograph</span></div><div class="pmeta"><div class="label kind">Skin</div><h3>Cleanser</h3><a href="#">Shop</a></div></div>
+  <div class="prow"><div class="shot pshot"><svg viewBox="0 0 100 100" fill="none" stroke="#5b52c9" stroke-width=".9"><circle cx="50" cy="50" r="30"/><circle cx="50" cy="50" r="46"/></svg><span class="shot-note">Product photograph</span></div><div class="pmeta"><div class="label kind">Skin</div><h3>Essence</h3><a href="#">Shop</a></div></div>
+  <div class="prow"><div class="shot pshot"><svg viewBox="0 0 100 100" fill="none" stroke="#5b52c9" stroke-width=".9"><circle cx="50" cy="50" r="30"/><ellipse cx="50" cy="50" rx="46" ry="16"/></svg><span class="shot-note">Product photograph</span></div><div class="pmeta"><div class="label kind">Body</div><h3>Tallow</h3><a href="#">Shop</a></div></div>
+  <div class="prow"><div class="shot pshot"><svg viewBox="0 0 100 100" fill="none" stroke="#5b52c9" stroke-width=".9"><circle cx="50" cy="50" r="30"/><ellipse cx="50" cy="50" rx="46" ry="16" transform="rotate(30 50 50)"/></svg><span class="shot-note">Product photograph</span></div><div class="pmeta"><div class="label kind">Body</div><h3>Body Oil</h3><a href="#">Shop</a></div></div>
+  <div class="prow"><div class="shot pshot"><svg viewBox="0 0 100 100" fill="none" stroke="#5b52c9" stroke-width=".9"><circle cx="50" cy="50" r="30"/><ellipse cx="50" cy="50" rx="46" ry="16" transform="rotate(-30 50 50)"/></svg><span class="shot-note">Product photograph</span></div><div class="pmeta"><div class="label kind">Body</div><h3>Sun Balm</h3><a href="#">Shop</a></div></div>
+</section>
+
+<section class="statement"><p>Cosmic Energy. Human Touch.</p></section>
+
+<section class="wrap">
+  <div class="sets">
+    <div class="shot pshot"><svg viewBox="0 0 100 100" fill="none" stroke="#5b52c9" stroke-width=".8"><circle cx="50" cy="50" r="20"/><circle cx="50" cy="50" r="34"/><circle cx="50" cy="50" r="47"/></svg><span class="shot-note">Product photograph</span></div>
+    <div><span class="label">Curated</span><h2>Sets</h2><a href="#">Explore Sets</a></div>
+  </div>
+</section>
+
+<section class="news">
+  <span class="label">Newsletter</span>
+  <form class="signup" onsubmit="return false"><input type="email" placeholder="Email address" aria-label="Email address"><button type="submit">Subscribe</button></form>
+</section>
+
+<footer>
+  <div class="fg">
+    <div><div class="fb">Indigo Alien</div><p>Cosmic Energy · Human Touch</p></div>
+    <div class="fc"><h4>Shop</h4><a href="#">Moisturizer</a><a href="#">Serum</a><a href="#">Cleanser</a><a href="#">Essence</a><a href="#">Sets</a></div>
+    <div class="fc"><h4>Account</h4><a href="#">Log in</a><a href="#">Cart</a><a href="#">Search</a></div>
+  </div>
+  <div class="fbase"><span>© Indigo Alien Beauty</span><span>Beauty in a Higher Frequency</span></div>
+</footer>
+</body>
+</html>
